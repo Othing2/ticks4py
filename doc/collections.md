@@ -12,17 +12,15 @@
 
 4. 堆队列：可用于找出最大或最小的N个元素(对于不可变数据(整数、字符串、元组等)是可哈希的，可以直接比较大小；列表、字典是不可哈希的)；也可用于构建优先级队列
 
-'''python
-	Import heapq
-
+'''python'''
+	import heapq
 	heapq.nlargest(N, seq)   heapq.nsmallest(N, seq)
 '''
 
 5. 字典：通常的用法是d={}，但是如果想要是字典里有个默认值，可以使用defaultdict
 
-'''python	
-	From collections import defaultdict
-
+'''python'''	
+	from collections import defaultdict
 	D = defaultdict(list)  #表示这个字典存储的值是列表
 '''
 
@@ -38,7 +36,7 @@
 
 7. 字典有关的计算：常使用zip()函数，将字典的键、值翻转过来，构建元组，返回一个迭代器
 
-'''python
+'''python'''
 	dict_iter = zip(dict.values(), dict.keys())
 
 	min(dict_iter), max(dict_iter)
@@ -66,7 +64,7 @@
 	set(seq)
 
 	如果想去掉重复项，而保持顺序，需要自己构建一个新的方法
-'''python
+'''python'''
 	def deset(items, key=None):
 		seen=set()
 		for item in items:
@@ -78,7 +76,7 @@
 	这个函数模拟sort()、min()、max()、itertools.groupby()（字典或对象分组）对key的处理，可以不可哈希元素通过key函数变成可哈希的，可参考operator.itemgetter()和operator.attrgetter()；并且使用生成器，可以使得方法更通用，而不必绑定只对列表的处理
 
 9. 命名元组：通过名称来访问元素，以减少对结构中位置的依赖性，比如在表单中新增一列数据，那么代码就可能崩溃。
-'''python
+'''python'''
 	From collections import namedtuple
 	row=[‘id’,‘name’,’addr’]  #构建表单访问列，如果表单列变化了，只需要改变这个列表
 	Subscrib = namedtuple(‘Subscrib’, row) #构建一个名为’Subscrib’的命名元组类
@@ -89,7 +87,7 @@
 	sub._replace(id=123)  #改变元素的值
 '''
 10. 对列表进行统计：统计相同元素的个数
-'''python
+'''python'''
 	From collections import Counter
 	Cnt1=Counter(dict1)  #返回一个类似字典的对象
 	Cnt2=Counter(dict2)
@@ -97,7 +95,7 @@
 	Cntd=Cnt1-Cnt2  #差集
 '''
 11、过滤：字典推导式、列表推导式（容易消耗内存）、生成器表达式、filter()
-'''python
+'''python'''
 	values1=[1,2,3,-1,0]
 	[ n for n in values if n >0 ]  #列表推导式
 	( n for n in values if n>0 )  #生成器表达式
